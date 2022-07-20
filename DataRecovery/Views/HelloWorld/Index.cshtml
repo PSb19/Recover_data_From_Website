@@ -1,0 +1,26 @@
+
+@{
+    @* List<string> companyInfo = ViewData["Contents"] as List<string>; *@
+    List<string> companyInfos = ViewData["CompanyInfos"] as List<string>;
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>Hello from our View Template!</p>
+    <form method="post" asp-controller="helloworld" asp-action="Export">
+        <input type="submit" value="Export"/>
+    </form>
+<p>@ViewData["Cut"]</p>
+<p>@ViewData["Count"]</p>
+@* @foreach (var item in companyInfo)
+{
+    <p>@item</p>
+} *@
+@if(companyInfos.Count > 0 ){
+    @foreach (var item in companyInfos)
+    {
+        <p>@item</p>
+    }
+}
+<p>@ViewData["SiteContent"]</p>
